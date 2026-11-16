@@ -30,9 +30,12 @@
 .nav-link:hover, .nav-link.active { color: #fff; background: rgba(255,255,255,0.04); }
 .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
 .menu-btn {
-  display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px;
+  display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; z-index: 60;
 }
 .menu-btn span { width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+.menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn.open span:nth-child(2) { opacity: 0; }
+.menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Hero */
 .hero {
@@ -184,14 +187,17 @@
   .hero-poster { max-width: 260px; justify-self: start; animation: fadeIn 0.6s ease; }
   .hero-content h1 { font-size: 2rem; }
   .menu-btn { display: flex; }
+  .navbar { backdrop-filter: none; background: rgba(10, 12, 18, 0.95); }
   .nav-links {
-    position: absolute; top: 100%; left: 0; right: 0; background: rgba(12,14,20,0.98);
-    backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06);
-    flex-direction: column; align-items: stretch; padding: 0.5rem 1rem 1rem; display: none;
-    animation: fadeIn 0.2s ease;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh; height: 100dvh; z-index: 55;
+    background: #0a0c12;
+    flex-direction: column; align-items: stretch; justify-content: center;
+    padding: 5rem 1.5rem 2rem; display: none; gap: 0.75rem;
+    overflow-y: auto; animation: fadeIn 0.2s ease;
   }
   .nav-links.open { display: flex; }
-  .nav-link { padding: 0.7rem 0.6rem; }
+  .nav-link { padding: 1rem; font-size: 1.25rem; text-align: center; }
 }
 @media (max-width: 500px) {
   .footer-inner { padding-top: 2.5rem; }
