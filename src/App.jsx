@@ -1,11 +1,22 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 import Favourites from "./pages/Favourites";
 import { getFavourites, saveFavourites } from "./utils/storage";
 import "./App.css";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   const [favourites, setFavourites] = useState(() => getFavourites());
@@ -26,6 +37,7 @@ function App() {
 
   return (
     <div className="app">
+      <ScrollToTop />
       <Navbar />
       <main className="main">
         <Routes>
@@ -49,6 +61,7 @@ function App() {
           />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }

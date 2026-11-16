@@ -138,8 +138,48 @@
   animation: fadeUp 0.4s ease;
 }
 
+/* Footer */
+.site-footer {
+  width: 100%;
+  background: linear-gradient(120deg, #081811, #0b0d12 75%);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 3.5rem 1rem 1.25rem; }
+.footer-content {
+  display: grid; grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 2.5rem; padding-bottom: 3rem;
+}
+.footer-brand { max-width: 310px; }
+.footer-logo { display: block; width: auto; height: 42px; object-fit: contain; }
+.footer-brand p, .footer-cta p { color: var(--muted); line-height: 1.8; margin: 1rem 0 0; }
+.footer-column, .footer-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 0.65rem; }
+.footer-column h2, .footer-cta h2 {
+  color: var(--text); font-size: 1rem; margin: 0 0 0.55rem; font-weight: 700;
+}
+.footer-column h2::after, .footer-cta h2::after {
+  content: ""; display: block; width: 26px; height: 2px; margin-top: 0.65rem;
+  background: var(--accent); border-radius: 2px;
+}
+.footer-column a, .footer-column span, .footer-bottom {
+  color: var(--muted); font-size: 0.92rem;
+}
+.footer-column a { transition: color 0.2s ease; }
+.footer-column a:hover, .footer-bottom a:hover { color: #fff; }
+.footer-cta p { margin: -0.3rem 0 0.35rem; }
+.footer-explore-link { color: #fff; font-weight: 600; }
+.footer-explore-link span { display: inline-block; margin-left: 0.25rem; transition: transform 0.2s ease; }
+.footer-explore-link:hover span { transform: translateX(4px); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem;
+}
+.footer-bottom p { margin: 0; }
+.footer-bottom a { transition: color 0.2s ease; white-space: nowrap; }
+
 /* Responsive */
 @media (max-width: 800px) {
+  .footer-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+  .footer-brand { max-width: none; }
   .hero { grid-template-columns: 1fr; padding: 1.75rem; }
   .hero-poster { max-width: 260px; justify-self: start; animation: fadeIn 0.6s ease; }
   .hero-content h1 { font-size: 2rem; }
@@ -154,6 +194,10 @@
   .nav-link { padding: 0.7rem 0.6rem; }
 }
 @media (max-width: 500px) {
+  .footer-inner { padding-top: 2.5rem; }
+  .footer-content { grid-template-columns: 1fr 1fr; gap: 1.75rem 1rem; }
+  .footer-brand, .footer-cta { grid-column: 1 / -1; }
+  .footer-bottom { align-items: flex-start; flex-direction: column; }
   .controls { flex-direction: column; align-items: stretch; }
   .controls input, .controls select, .controls .btn { width: 100%; min-width: 0; }
   .movie-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }

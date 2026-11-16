@@ -7,10 +7,15 @@ function Navbar() {
 
   const linkClass = ({ isActive }) => (isActive ? "nav-link active" : "nav-link");
 
+  const goHome = () => {
+    setOpen(false);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <header className="navbar">
       <div className="nav-inner">
-        <NavLink to="/" className="brand" onClick={() => setOpen(false)} aria-label="Movie Explorer home">
+        <NavLink to="/" className="brand" onClick={goHome} aria-label="Movie Explorer home">
           <img src={logo} alt="Movie Explorer logo" className="brand-logo" />
         </NavLink>
         <button
