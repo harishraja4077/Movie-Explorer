@@ -113,6 +113,7 @@
   background: rgba(255,255,255,0.04); color: var(--text); border: 1px solid rgba(255,255,255,0.08);
   padding: 0.6rem 0.75rem; border-radius: 10px; min-width: 180px; transition: all 0.25s ease;
 }
+.controls select option { background-color: var(--surface); color: var(--text); }
 .controls input { flex: 1 1 220px; }
 .controls input:hover, .controls select:hover { border-color: rgba(255,255,255,0.15); }
 .controls input:focus, .controls select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(229,9,20,0.15); }
